@@ -10,9 +10,13 @@ export default () => {
   const router = useRouter();
   const store = storeToRefs(sessionStore);
 
-  function signOut() {
+  function signOut(redirectPath?: string | null) {
     sessionStore.$reset();
-    router.push(AuthenticationRoute.SIGN_IN);
+    if (!redirectPath) {
+      router.push(AuthenticationRoute.SIGN_IN);
+    } else {
+      router.push(redirectPath);
+    }
   }
 
   return {

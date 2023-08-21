@@ -7,7 +7,6 @@
     "types": [
       "node",
       "jsdom",
-      "@intlify/unplugin-vue-i18n/messages"
     ],
   }
 }

@@ -1,8 +1,10 @@
 import type { App, Plugin } from 'vue';
+import type { Router } from 'vue-router';
 import { createPinia } from 'pinia';
 import type { Authentication } from '@src/models/authentication';
 
 export type PluginOptions = {
+  router: Router;
   domain: string;
   clientId: string;
   scope: string;
@@ -10,6 +12,12 @@ export type PluginOptions = {
 };
 
 let pluginOptions: PluginOptions | null = null;
+
+let router: Router | null = null;
+
+export function getRouter() {
+  return router;
+}
 
 export function getPluginOptions() {
   if (pluginOptions === null) {
@@ -20,6 +28,7 @@ export function getPluginOptions() {
 
 export default (options: PluginOptions) => {
   pluginOptions = options;
+  router = options.router;
 
   const plugin: Plugin = {
     install(app: App) {

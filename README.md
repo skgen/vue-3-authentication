@@ -199,3 +199,17 @@ import { signIn } from '@patriarche/vue-auth';
 Same function as the one returned by `useAuth`, but can be used outside of a component
 
 > This can be usefull if needed to be used outside of a component, if used in a component/hook : prefer using `signIn` returned from `useAuth`
+
+### signOut
+
+```typescript
+function signOut(redirectPath?: string | null): Promise<void>
+```
+
+```typescript
+import { signOut } from '@patriarche/vue-auth';
+```
+
+Same function as the one returned by `useAuth`, but can be used outside of a component
+
+> This can be usefull if needed to be used outside of a component, if used in a component/hook : prefer using `signOut` returned from `useAuth`

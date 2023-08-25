@@ -21,13 +21,13 @@ import { createAuthentication } from '@patriarche/vue-auth';
 
 const app = createApp(...);
 
-const authenticationPlugin = () => createAuthentication({
+const authentication = createAuthentication({
     domain: 'https://your-domain',
     clientId: 'abcdefghijklmnopqrstuvwxyz',
     scope: 'email openid',
-  });
+});
   
-app.use(authenticationPlugin());
+app.use(authentication);
 ```
 
 ## Routing

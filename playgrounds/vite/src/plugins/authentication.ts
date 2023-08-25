@@ -1,11 +1,11 @@
 import { createAuthentication } from '@patriarche/vue-auth';
 import router from '@/plugins/router';
 
-const authenticationPlugin = () => createAuthentication({
+const authentication = createAuthentication({
   router,
-  domain: 'https://pux059-melkor-test.auth.eu-west-3.amazoncognito.com',
-  clientId: '7nrcdkofd1qs9udklm4uppphpl',
-  scope: 'email openid',
+  domain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+  clientId: import.meta.env.VITE_APP_AUTH_CLIENT_ID,
+  scope: import.meta.env.VITE_APP_AUTH_SCOPE,
 });
 
-export default authenticationPlugin;
+export default authentication;

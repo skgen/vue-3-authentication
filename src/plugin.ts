@@ -1,6 +1,5 @@
 import type { App, Plugin } from 'vue';
 import type { Router } from 'vue-router';
-import { createPinia } from 'pinia';
 import type { Authentication } from '@src/models/authentication';
 
 export type PluginOptions = {
@@ -33,7 +32,7 @@ export default (options: PluginOptions) => {
   const plugin: Plugin = {
     install(app: App) {
       if (!app.config.globalProperties.$pinia) {
-        app.use(createPinia());
+        throw new Error('[@patriarche/vue-auth] Missing pinia plugin active instance');
       }
     },
   };
